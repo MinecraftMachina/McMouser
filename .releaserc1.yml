@@ -1,0 +1,10 @@
+---
+dryRun: true
+branches:
+  - {{release_branch}}
+tagFormat: v{{release_branch}}-${version}
+plugins:
+  - "@semantic-release/commit-analyzer"
+  - #
+    - "@semantic-release/exec"
+    - verifyReleaseCmd: echo "${nextRelease.version}" > .version

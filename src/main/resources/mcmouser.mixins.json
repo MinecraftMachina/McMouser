@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.virb3.mcmouser.client.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "client": [
+    "MixinMouse"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+  ]
+}
