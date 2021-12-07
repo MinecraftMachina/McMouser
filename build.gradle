@@ -1,0 +1,70 @@
+buildscript {
+    repositories {
+        maven { url = 'https://maven.minecraftforge.net' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        classpath 'org.spongepowered:mixingradle:0.7.+'
+    }
+}
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'eclipse'
+apply plugin: 'maven-publish'
+apply plugin: 'org.spongepowered.mixin'
+
+version = "${minecraft_version}-forge-${mod_version}"
+group = mod_id
+archivesBaseName = mod_name
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(16)
+
+minecraft {
+    mappings channel: mappings_channel, version: mappings_version
+}
+
+sourceSets.main.resources {
+    srcDir 'src/generated/resources'
+    exclude 'META-INF/mods.toml'
+}
+
+processResources {
+    from(sourceSets.main.resources.srcDirs) {
+        include 'META-INF/mods.toml'
+
+        expand 'modId': mod_name, 'displayName': mod_name, 'version': mod_version,
+                'mcversion': minecraft_version, 'description': mod_description,
+                'authors': mod_author, 'forge_version': forge_version,
+                'minecraft_version': minecraft_version, 'loaderVersion': forge_version.split("\\.")[0]
+    }
+}
+
+repositories {
+
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+}
+
+jar {
+    manifest {
+        attributes([
+                "Specification-Title"     : mod_name,
+                "Specification-Vendor"    : mod_author,
+                "Specification-Version"   : mod_version,
+                "Implementation-Title"    : mod_name,
+                "Implementation-Version"  : mod_version,
+                "Implementation-Vendor"   : mod_author,
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
+    }
+}
+
+mixin {
+    add sourceSets.main, 'mcmouser.mixins.refmap.json'
+    config 'mcmouser.mixins.json'
+}
+
+jar.finalizedBy('reobfJar')
