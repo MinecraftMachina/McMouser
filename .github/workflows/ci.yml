@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches-ignore:
+      - master
+  pull_request:
+    branches-ignore:
+      - master
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Prepare build
+        run: |
+          sed -i "s/{{release_branch}}/$GITHUB_REF_NAME/" .releaserc* || exit 1
+          mv .releaserc1.yml .releaserc.yml
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v2.4.0
+        with:
+          distribution: "temurin"
+          java-version: "8"
+
+      - name: Version
+        uses: cycjimmy/semantic-release-action@v2.6.0
+        with:
+          semantic_version: "18.0.0"
+          extra_plugins: |
+            @semantic-release/exec@6.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.API_GITHUB_TOKEN }}
+
+      - name: Build
+        run: |
+          sed -i "s/mod_version=.*/mod_version=$(cat .version)/" gradle.properties || exit 1
+          ./gradlew build
+          mv .releaserc2.yml .releaserc.yml
+
+      - name: Release
+        uses: cycjimmy/semantic-release-action@v2.6.0
+        with:
+          semantic_version: "18.0.0"
+        env:
+          GITHUB_TOKEN: ${{ secrets.API_GITHUB_TOKEN }}

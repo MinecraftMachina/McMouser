@@ -1,0 +1,40 @@
+buildscript {
+    repositories {
+        maven { url = 'https://files.minecraftforge.net/maven' }
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
+    }
+}
+        
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'eclipse'
+
+version = "${minecraft_version}-forge-${mod_version}"
+group = mod_id
+archivesBaseName = mod_name
+
+// Need this here so eclipse task generates correctly.
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
+
+minecraft {
+    mappings channel: mappings_channel, version: mappings_version
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+}
+
+jar {
+    manifest {
+        attributes([
+                "FMLCorePlugin": "${mod_id}.CoreMod",
+                "FMLCorePluginContainsFMLMod": "false",
+                "TweakOrder": "0"
+        ])
+    }
+}
+
+jar.finalizedBy('reobfJar')
