@@ -5,11 +5,11 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1.+'
     }
 }
         
-apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'eclipse'
 
 version = "${minecraft_version}-forge-${mod_version}"
@@ -20,11 +20,14 @@ archivesBaseName = mod_name
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
 minecraft {
-    mappings channel: mappings_channel, version: mappings_version
+    mappings "stable_20"
+
+    version = "${minecraft_version}-${forge_version}-${minecraft_version}"
+    runDir = "run"
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
 }
 
 jar {
@@ -36,5 +39,3 @@ jar {
         ])
     }
 }
-
-jar.finalizedBy('reobfJar')
