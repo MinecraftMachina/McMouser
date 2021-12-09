@@ -17,7 +17,7 @@ version = "${minecraft_version}-forge-${mod_version}"
 group = mod_id
 archivesBaseName = mod_name
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(16)
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 minecraft {
     mappings channel: mappings_channel, version: mappings_version
