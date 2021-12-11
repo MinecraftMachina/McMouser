@@ -15,19 +15,7 @@ Seriously, it's this simple.
 
 The mod supports all major versions of Minecraft since 1.8.9, both Fabric and Forge. If your version is not listed, raise an issue, it is trivial to port the code.
 
-- Minecraft 1.18.0
-  - [Forge](https://github.com/MinecraftMachina/McMouser/releases/download/v1.18.0-forge-1.0.0/mcmouser-1.18-forge-1.0.0.jar)
-  - [Fabric](https://github.com/MinecraftMachina/McMouser/releases/download/v1.18.0-fabric-1.0.0/mcmouser-1.18-fabric-1.0.0.jar)
-- Minecraft 1.17.1
-  - [Forge](https://github.com/MinecraftMachina/McMouser/releases/download/v1.17.1-forge-1.0.0/mcmouser-1.17.1-forge-1.0.0.jar)
-  - [Fabric](https://github.com/MinecraftMachina/McMouser/releases/download/v1.17.1-fabric-1.0.0/mcmouser-1.17.1-fabric-1.0.0.jar)
-- Minecraft 1.16.5
-  - [Forge](https://github.com/MinecraftMachina/McMouser/releases/download/v1.16.5-forge-1.0.0/mcmouser-1.16.5-forge-1.0.0.jar)
-  - [Fabric](https://github.com/MinecraftMachina/McMouser/releases/download/v1.16.5-fabric-1.0.0/mcmouser-1.16.5-fabric-1.0.0.jar)
-- Minecraft 1.12.2
-  - [Forge](https://github.com/MinecraftMachina/McMouser/releases/download/v1.12.2-forge-1.0.0/mcmouser-1.12.2-forge-1.0.0.jar)
-- Minecraft 1.8.9
-  - [Forge](https://github.com/MinecraftMachina/McMouser/releases/download/v1.8.9-forge-1.0.0/mcmouser-1.8.9-forge-1.0.0.jar)
+Check out the [Releases](https://github.com/MinecraftMachina/McMouser/releases) section.
 
 ## How does it work
 
