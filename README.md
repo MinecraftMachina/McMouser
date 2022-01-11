@@ -19,6 +19,10 @@ The mod supports all major versions of Minecraft since 1.8.9, both Fabric and Fo
 
 Check out the [Releases](https://github.com/MinecraftMachina/McMouser/releases) section or [CurseForge](https://www.curseforge.com/minecraft/mc-mods/mcmouser).
 
+## Building
+
+The code for each Minecraft version is released in a separate git branch, so check out the one that interests you. Building is as simple as running `./gradlew build`, and the mod JAR will be under `build/libs`.
+
 ## How does it work
 
 Right-click emulation is achieved in two different ways depending on the version of Minecraft.
