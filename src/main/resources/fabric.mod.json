@@ -10,18 +10,11 @@
   "icon": "assets/mcmouser/icon.png",
   "environment": "client",
   "entrypoints": {
-    "client": [
-      "me.virb3.mcmouser.client.McMouserClient"
-    ],
-    "main": [
-      "me.virb3.mcmouser.McMouser"
+    "preLaunch": [
+      "me.virb3.mcmouser.CoreMod"
     ]
   },
-  "mixins": [
-    "mcmouser.mixins.json"
-  ],
   "depends": {
-    "fabricloader": ">=0.12.9",
-    "minecraft": ">=1.16"
+    "minecraft": "1.8.9"
   }
 }

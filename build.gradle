@@ -1,21 +1,30 @@
 plugins {
-    id 'fabric-loom' version '0.10-SNAPSHOT'
+    id 'fabric-loom' version '0.8-SNAPSHOT'
 }
 
 version = "${minecraft_version}-fabric-${mod_version}"
 group = mod_id
 
 repositories {
+    maven {
+        name = "legacy-fabric"
+        url = "https://maven.legacyfabric.net"
+    }
+}
 
+minecraft {
+    intermediaryUrl = {
+        return "https://maven.legacyfabric.net/net/fabricmc/intermediary/" + it + "/intermediary-" + it + "-v2.jar";
+    }
 }
 
 dependencies {
-    minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    mappings minecraft.officialMojangMappings()
-    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    mappings "net.fabricmc:yarn:${yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${loader_version}"
 
-    // Fabric API. This is technically optional, but you probably want it anyway.
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    // Legacy-Fabric API
+    modImplementation "net.legacyfabric.legacy-fabric-api:legacy-fabric-api:${fabric_version}"
 }
 
 processResources {
