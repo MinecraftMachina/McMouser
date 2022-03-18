@@ -27,7 +27,7 @@ The code for each Minecraft version is released in a separate git branch, so che
 
 Right-click emulation is achieved in two different ways depending on the version of Minecraft.
 
-For Minecraft <1.13, which use LWJGL2, the emulation is included inside the LWJGL2 native, `liblwjgl.dylib`. This limits our options, so the mod ships a modified (byte patched) version of the library and forces LWJGL2 to load it instead of the original. For reference, [here](https://github.com/LWJGL/lwjgl/commit/43a6a8bfbb1b55fe49ccbcb82997ddad51ce809b) is the commit that needs to be reverted. Both amd64 and arm64 versions of the library are include in the mod.
+For Minecraft <1.13, which use LWJGL2, the emulation is included inside the LWJGL2 native, `liblwjgl.dylib`. This limits our options, so the mod ships a modified version of the library and forces LWJGL2 to load it instead of the original. For arm64, the library is custom-built from [MinecraftMachina/lwjgl2#right-click-fix](https://github.com/MinecraftMachina/lwjgl/tree/right-click-fix). For x86_64, the original library is byte patched. For reference, [here](https://github.com/LWJGL/lwjgl/commit/43a6a8bfbb1b55fe49ccbcb82997ddad51ce809b) is the commit that needs to be reverted.
 
 For Minecraft 1.14+, which use LWJGL3, the emulation is performed in regular Minecraft code. This makes it trivial to patch with a mixin.
 
