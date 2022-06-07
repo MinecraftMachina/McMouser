@@ -13,11 +13,12 @@ Install this mod and you can now play the game like everyone else. Seriously, it
 ## Features
 - Fixes Shift + Scroll not working on macOS ([MC-121772](https://bugs.mojang.com/browse/MC-121772))
 - Disables `Ctrl` + `Left Click` = `Right Click` emulation
+
 ## Downloads
 
 The mod supports all major versions of Minecraft since 1.8.9, both Fabric and Forge. If your version is not listed, raise an issue, it is trivial to port the code.
 
-Check out the [Releases](https://github.com/MinecraftMachina/McMouser/releases) section or [CurseForge](https://www.curseforge.com/minecraft/mc-mods/mcmouser).
+Check out the [Releases](https://github.com/MinecraftMachina/McMouser/releases) section, [CurseForge](https://www.curseforge.com/minecraft/mc-mods/mcmouser), or [Modrinth](https://modrinth.com/mod/mcmouser).
 
 ## Building
 
