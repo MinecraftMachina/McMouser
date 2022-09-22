@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4.1.4
 
       - name: Prepare build
         run: |
@@ -23,15 +23,15 @@ jobs:
           mv .releaserc1.yml .releaserc.yml
 
       - name: Setup Java JDK
-        uses: actions/setup-java@v2.4.0
+        uses: actions/setup-java@v4.2.1
         with:
           distribution: "temurin"
           java-version: "17"
 
       - name: Version
-        uses: cycjimmy/semantic-release-action@v2.6.0
+        uses: cycjimmy/semantic-release-action@v4.1.0
         with:
-          semantic_version: "18.0.0"
+          semantic_version: "23.0.8"
           extra_plugins: |
             @semantic-release/exec@6.0.1
         env:
@@ -44,8 +44,8 @@ jobs:
           mv .releaserc2.yml .releaserc.yml
 
       - name: Release
-        uses: cycjimmy/semantic-release-action@v2.6.0
+        uses: cycjimmy/semantic-release-action@v4.1.0
         with:
-          semantic_version: "18.0.0"
+          semantic_version: "23.0.8"
         env:
           GITHUB_TOKEN: ${{ secrets.API_GITHUB_TOKEN }}
