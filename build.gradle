@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.7-SNAPSHOT'
+    id 'fabric-loom' version "${loom_version}"
 }
 
 version = "${minecraft_version}-fabric-${mod_version}"
@@ -40,11 +40,12 @@ java {
     if (JavaVersion.current() < javaVersion) {
         toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
     }
-    archivesBaseName = mod_name
     withSourcesJar()
 }
 
 jar {
+    inputs.property "archivesName", project.mod_name
+
     from("LICENSE") {
         rename { "${it}_${mod_name}" }
     }

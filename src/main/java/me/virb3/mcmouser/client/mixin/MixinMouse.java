@@ -1,6 +1,6 @@
 package me.virb3.mcmouser.client.mixin;
 
-import net.minecraft.client.Minecraft;
+import net.minecraft.Util;
 import net.minecraft.client.MouseHandler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -13,8 +13,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class MixinMouse {
     private double deltaX;
 
-    @Redirect(method = "onPress", at = @At(value = "FIELD", target = "Lnet/minecraft/client/Minecraft;ON_OSX:Z"))
-    private boolean onPress() {
+    @Redirect(method = "simulateRightClick", at = @At(value = "FIELD", target = "Lnet/minecraft/client/input/InputQuirks;SIMULATE_RIGHT_CLICK_WITH_LONG_LEFT_CLICK:Z"))
+    private boolean simulateRightClick() {
         return false;
     }
 
@@ -25,7 +25,7 @@ public class MixinMouse {
 
     @ModifyVariable(method = "onScroll", ordinal = 1, at = @At(value = "LOAD"), argsOnly = true)
     private double onScroll_deltaX(double deltaY) {
-        if (Minecraft.ON_OSX && deltaY == 0) {
+        if (Util.getPlatform() == Util.OS.OSX && deltaY == 0) {
             return deltaX;
         }
         return deltaY;
