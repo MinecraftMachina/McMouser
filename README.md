@@ -11,7 +11,7 @@
 Install this mod and you can now play the game like everyone else. Seriously, it's this simple.
 
 ## Features
-- Fixes Shift + Scroll not working on macOS ([MC-121772](https://bugs.mojang.com/browse/MC-121772))
+- Fixes `Shift` + `Scroll` not working on <1.20.2 ([MC-121772](https://bugs.mojang.com/browse/MC-121772)) and reversing direction on >=1.20.2
 - Disables `Ctrl` + `Left Click` = `Right Click` emulation
 
 ## Downloads
