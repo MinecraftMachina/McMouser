@@ -1,6 +1,6 @@
 package me.virb3.mcmouser.client.mixin;
 
-import net.minecraft.Util;
+import net.minecraft.util.Util;
 import net.minecraft.client.MouseHandler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
