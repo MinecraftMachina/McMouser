@@ -1,0 +1,16 @@
+[
+  {
+    "modid": "mcmouser",
+    "name": "McMouser",
+    "description": "A simple mod that disables right-click remapping on macOS.",
+    "version": "${mod_version}",
+    "mcversion": "${minecraft_version}",
+    "authorList": [
+      "ViRb3"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
