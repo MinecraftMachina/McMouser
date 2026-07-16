@@ -14,6 +14,9 @@
       "me.virb3.mcmouser.CoreMod"
     ]
   },
+  "mixins": [
+    "mcmouser.mixins.json"
+  ],
   "depends": {
     "minecraft": "1.8.9"
   }

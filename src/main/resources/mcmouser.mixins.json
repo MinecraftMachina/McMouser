@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.virb3.mcmouser.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "client": [
+    "MacOSXDisplayMixin",
+    "MacOSXNativeMouseMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
