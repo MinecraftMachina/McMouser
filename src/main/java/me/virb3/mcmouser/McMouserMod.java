@@ -19,4 +19,8 @@ import net.minecraftforge.fml.common.Mod;
 )
 public final class McMouserMod {
     public static final String MOD_ID = "mcmouser";
+
+    public McMouserMod() {
+        LwjglMousePatch.apply();
+    }
 }
