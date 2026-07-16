@@ -27,7 +27,10 @@ public class CoreMod implements IFMLLoadingPlugin {
             File tempDir = Files.createTempDirectory("mcmouser").toFile();
             tempDir.deleteOnExit();
             Path tempFile = tempDir.toPath().resolve("liblwjgl.dylib");
-            try (InputStream is = CoreMod.class.getResourceAsStream("/liblwjgl.dylib")) {
+            try (InputStream is = CoreMod.class.getResourceAsStream("/mcmouser/natives/liblwjgl.dylib")) {
+                if (is == null) {
+                    throw new FileNotFoundException("Bundled McMouser liblwjgl.dylib was not found");
+                }
                 Files.copy(is, tempFile, StandardCopyOption.REPLACE_EXISTING);
             }
             System.setProperty("org.lwjgl.librarypath", tempDir.getAbsolutePath());
