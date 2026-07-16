@@ -12,6 +12,7 @@ Install this mod and you can now play the game like everyone else. Seriously, it
 
 ## Features
 - Fixes `Shift` + `Scroll` not working on <1.20.2 ([MC-121772](https://bugs.mojang.com/browse/MC-121772)) and reversing direction on >=1.20.2
+- Fixes mouse side buttons on <1.13
 - Disables `Ctrl` + `Left Click` = `Right Click` emulation
 
 ## Downloads
@@ -28,9 +29,8 @@ The code for each Minecraft version is released in a separate git branch, so che
 
 Right-click emulation is achieved in two different ways depending on the version of Minecraft.
 
-For Minecraft <1.13, which use LWJGL2, the emulation is included inside the LWJGL2 native, `liblwjgl.dylib`. This limits our options, so the mod ships a modified version of the library and forces LWJGL2 to load it instead of the original. For arm64, the library is custom-built from [MinecraftMachina/lwjgl2#right-click-fix](https://github.com/MinecraftMachina/lwjgl/tree/right-click-fix). For x86_64, the original library is byte patched. For reference, [here](https://github.com/LWJGL/lwjgl/commit/43a6a8bfbb1b55fe49ccbcb82997ddad51ce809b) is the commit that needs to be reverted.
+For Minecraft <1.13, which use LWJGL2, the emulation is included inside the LWJGL2 native, `liblwjgl.dylib`. This limits our options, so the mod ships a modified version of the library and forces LWJGL2 to load it instead of the original. The library is custom-built from [MinecraftMachina/lwjgl2#right-click-fix](https://github.com/MinecraftMachina/lwjgl/tree/right-click-fix).
 
 For Minecraft 1.14+, which use LWJGL3, the emulation is performed in regular Minecraft code. This makes it trivial to patch with a mixin.
 
 Shift scroll bug is already fixed by Forge, but for Fabric, it is achieved in the same way via a mixin.
-
