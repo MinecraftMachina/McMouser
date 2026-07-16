@@ -27,11 +27,25 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 }
 
+processResources {
+    inputs.property "mod_version", mod_version
+    inputs.property "minecraft_version", minecraft_version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include "mcmod.info"
+        expand "mod_version": mod_version, "minecraft_version": minecraft_version
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude "mcmod.info"
+    }
+}
+
 jar {
     manifest {
         attributes([
                 "FMLCorePlugin": "${mod_id}.CoreMod",
-                "FMLCorePluginContainsFMLMod": "false",
+                "FMLCorePluginContainsFMLMod": "true",
                 "TweakOrder": "0"
         ])
     }
