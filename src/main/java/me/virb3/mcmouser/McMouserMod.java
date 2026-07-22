@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.Mod;
         name = "McMouser",
         useMetadata = true,
         clientSideOnly = true,
-        acceptedMinecraftVersions = "[1.8.9]",
+        acceptedMinecraftVersions = "[1.10.2]",
         acceptableRemoteVersions = "*"
 )
 public final class McMouserMod {
