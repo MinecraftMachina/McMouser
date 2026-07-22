@@ -1,15 +1,16 @@
 buildscript {
     repositories {
-        maven { url = 'https://files.minecraftforge.net/maven' }
-        jcenter()
         mavenCentral()
+        maven { url = 'https://maven.minecraftforge.net/' }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1.+'
+        classpath('com.anatawa12.forge:ForgeGradle:1.2-1.1.+') {
+            changing = true
+        }
     }
 }
         
-apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'forge'
 apply plugin: 'eclipse'
 
 version = "${minecraft_version}-forge-${mod_version}"
@@ -20,7 +21,7 @@ archivesBaseName = mod_name
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
 minecraft {
-    mappings "stable_20"
+    mappings = mappings_version
 
     version = "${minecraft_version}-${forge_version}-${minecraft_version}"
     runDir = "run"

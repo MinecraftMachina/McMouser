@@ -1,6 +1,8 @@
 package me.virb3.mcmouser;
 
-import net.minecraftforge.fml.common.Mod;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.relauncher.Side;
 
 /**
  * FML mod container for McMouser.
@@ -13,14 +15,15 @@ import net.minecraftforge.fml.common.Mod;
         modid = McMouserMod.MOD_ID,
         name = "McMouser",
         useMetadata = true,
-        clientSideOnly = true,
-        acceptedMinecraftVersions = "[1.8.9]",
+        acceptedMinecraftVersions = "[1.7.10]",
         acceptableRemoteVersions = "*"
 )
 public final class McMouserMod {
     public static final String MOD_ID = "mcmouser";
 
     public McMouserMod() {
-        LwjglMousePatch.apply();
+        if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+            LwjglMousePatch.apply();
+        }
     }
 }

@@ -1,7 +1,6 @@
 package me.virb3.mcmouser;
 
-import net.minecraftforge.common.ForgeVersion;
-import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
+import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -13,7 +12,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.Locale;
 import java.util.Map;
 
-@IFMLLoadingPlugin.MCVersion(ForgeVersion.mcVersion)
+@IFMLLoadingPlugin.MCVersion("1.7.10")
 @IFMLLoadingPlugin.Name("McMouser")
 public class CoreMod implements IFMLLoadingPlugin {
     private static final Logger LOGGER = LogManager.getLogger();
